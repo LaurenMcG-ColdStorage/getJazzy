@@ -28,6 +28,26 @@ function onReady() {
         });
 
     // TODO Add Axios request for /songs and display on DOM
-}
+    axios({
+        method: 'GET',
+        url: './song'
+    })
+        .then(function (response) {
+            console.log(response);
+            let songsFromServer = response.data;
+            let songDiv = document.querySelector('#songTableBody');
+            for (let song in songsFromServer){
+                songDiv.innerHTML +=`
+                <tr>
+                    <td>${song.title}</td>
+                    <td>${song.artist}</td>
+                </tr>`;
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert('Something broke, check console for details')
+        });
+};
 
 onReady();
