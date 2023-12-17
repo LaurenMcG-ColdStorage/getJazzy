@@ -3,6 +3,10 @@ const express = require('express');
 const app = express();
 const PORT = 5001;
 
+app.use(express.json());
+app.use(express.static('server/public'));
+
+
 const artistListArray = [
     {
         name: 'Miles Davis',
@@ -45,13 +49,12 @@ const songListArray = [
     },
 ];
 
-app.use(express.static('server/public'));
-
 app.get('/artist', (req, res) => {
     res.send(artistListArray);
 });
+let newArtist = {};
 app.post('/artist', (req, res) =>{
-    const newArtist = req.body;
+    newArtist = req.body;
     artistListArray.push(newArtist);
     res.sendStatus(201);
 })
@@ -60,9 +63,9 @@ app.post('/artist', (req, res) =>{
 app.get('/song', (req,res)=> {
     res.send(songListArray);
 });
-
-app.post('/somg', (req,res)=>{
-    const newSong = req.body;
+let newSong = {};
+app.post('/song', (req,res)=>{
+    newSong = req.body;
     songListArray.push(newSong);
     res.sendStatus(201);
 })

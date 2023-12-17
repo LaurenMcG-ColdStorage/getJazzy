@@ -43,5 +43,13 @@
         </thead>
         <tbody id="songTableBody"></tbody>
     </table>
+    <form class='songForm' onsubmit="submitSong(event)">
+        <h3>Add A New Song</h3>
+        <label for="songTitle">Title</label>
+        <input id="songTitle" name='songTitle' type="text" /><br>
+        <label for="songArtist">Artist</label>
+        <input id="songArtist" name='songArtist' type="text" /><br>
+        <input type="submit" id="songSubmit"></input>
+    </form>
 </body>
 </html>
