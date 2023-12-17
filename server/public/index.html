@@ -22,6 +22,16 @@
         </thead>
         <tbody id="artistTableBody"></tbody>
     </table>
+    <form class='artistForm' onsubmit="submitArtist(event)">
+        <h3>Add A New Artist</h3>
+        <label for="artistName">Name</label>
+        <input id="artistName" name='artistName' type="text" /><br>
+        <label for="artistBorn">Born</label>
+        <input id="artistBorn" name='artistBorn' type="text" /><br>
+        <label for="artistDied">Died</label>
+        <input id="artistDied" name='artistDied' type="text" /><br>
+        <input type="submit" id="artistSubmit"></input>
+    </form>
 
     <h2>Famous Jazz Songs</h2>
     <table>

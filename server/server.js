@@ -50,12 +50,22 @@ app.use(express.static('server/public'));
 app.get('/artist', (req, res) => {
     res.send(artistListArray);
 });
+app.post('/artist', (req, res) =>{
+    const newArtist = req.body;
+    artistListArray.push(newArtist);
+    res.sendStatus(201);
+})
 
 // TODO - Add GET for songs
 app.get('/song', (req,res)=> {
     res.send(songListArray);
 });
 
+app.post('/somg', (req,res)=>{
+    const newSong = req.body;
+    songListArray.push(newSong);
+    res.sendStatus(201);
+})
 app.listen(PORT, () => {
     console.log('listening on port', PORT)
 });
